@@ -11,21 +11,21 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 
 ## Fase 0 — Setup Awal Project (Manual, Tanpa Breeze/Jetstream)
 
-- [✅] Install Laravel baru: `composer create-project laravel/laravel job-aggregator`
-- [✅] Konfigurasi database lokal (`.env`) — SQLite atau MySQL
-- [✅] Install Inertia server-side: `composer require inertiajs/inertia-laravel`
-- [✅] Jalankan `php artisan inertia:middleware`, daftarkan middleware `HandleInertiaRequests` di `bootstrap/app.php`
-- [✅] Buat root template `resources/views/app.blade.php` (dengan `@vite`, `@inertiaHead`, `@inertia`)
-- [✅] Install dependency frontend: `npm install react react-dom @inertiajs/react` dan `npm install -D @vitejs/plugin-react`
-- [✅] Konfigurasi `vite.config.js` untuk mendaftarkan plugin React + entry point `resources/js/app.jsx`
-- [✅] Buat entry point `resources/js/app.jsx` (setup `createInertiaApp`)
-- [✅] Install Tailwind manual: `npm install -D tailwindcss postcss autoprefixer` lalu `npx tailwindcss init -p`
-- [✅] Konfigurasi `tailwind.config.js` — set `content` path ke `resources/**/*.{blade.php,jsx}`
-- [✅] Buat halaman test sederhana (`Pages/Test.jsx`) untuk pastikan Inertia + React + Tailwind sudah nyambung sebelum lanjut ke fitur asli
-- [✅] Install dependency backend: `google/apiclient`, `symfony/dom-crawler`, `symfony/css-selector`
-- [✅] Install Pest: `composer require pestphp/pest --dev --with-all-dependencies` lalu `php artisan pest:install`
-- [✅] Pastikan `.env` masuk `.gitignore`, siapkan `.env.example` tanpa isi kredensial asli
-- [ ] Buat repository git lokal (kalau belum), commit awal struktur kosong
+- [x] Install Laravel baru: `composer create-project laravel/laravel job-aggregator`
+- [x] Konfigurasi database lokal (`.env`) — SQLite atau MySQL
+- [x] Install Inertia server-side: `composer require inertiajs/inertia-laravel`
+- [x] Jalankan `php artisan inertia:middleware`, daftarkan middleware `HandleInertiaRequests` di `bootstrap/app.php`
+- [x] Buat root template `resources/views/app.blade.php` (dengan `@vite`, `@inertiaHead`, `@inertia`)
+- [x] Install dependency frontend: `npm install react react-dom @inertiajs/react` dan `npm install -D @vitejs/plugin-react`
+- [x] Konfigurasi `vite.config.js` untuk mendaftarkan plugin React + entry point `resources/js/app.jsx`
+- [x] Buat entry point `resources/js/app.jsx` (setup `createInertiaApp`)
+- [x] Install Tailwind manual: `npm install -D tailwindcss postcss autoprefixer` lalu `npx tailwindcss init -p`
+- [x] Konfigurasi `tailwind.config.js` — set `content` path ke `resources/**/*.{blade.php,jsx}`
+- [x] Buat halaman test sederhana (`Pages/Test.jsx`) untuk pastikan Inertia + React + Tailwind sudah nyambung sebelum lanjut ke fitur asli
+- [x] Install dependency backend: `google/apiclient`, `symfony/dom-crawler`, `symfony/css-selector`
+- [x] Install Pest: `composer require pestphp/pest --dev --with-all-dependencies` lalu `php artisan pest:install`
+- [x] Pastikan `.env` masuk `.gitignore`, siapkan `.env.example` tanpa isi kredensial asli
+- [x] Buat repository git lokal (kalau belum), commit awal struktur kosong
 
 **Catatan:** Karena setup manual (bukan starter kit), autentikasi/session tidak otomatis tersedia dari scaffolding — implementasi Login & Google OAuth dikerjakan sendiri di Fase 1.1.
 
