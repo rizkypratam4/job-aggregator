@@ -10,7 +10,7 @@ Dibangun untuk menyelesaikan masalah pribadi saat mencari kerja:
 - Lowongan tersebar di banyak platform (Glints, LinkedIn Jobs, dll), harus dicek manual satu per satu
 - Inbox Gmail penuh notifikasi bot dari job board, sehingga email penting dari HR sering tertimpa dan terlambat dibaca
 
-Detail lengkap kebutuhan produk ada di [`product.md`](./docs/PRODUCT.md).
+Detail lengkap kebutuhan produk ada di [`PRODUCT.md`](./docs/PRODUCT.md).
 
 ## Fitur Utama
 
@@ -25,18 +25,16 @@ Detail lengkap kebutuhan produk ada di [`product.md`](./docs/PRODUCT.md).
 - **AI:** Gemini API (match scoring)
 - **Integrasi:** Gmail API (OAuth)
 
-Detail arsitektur lengkap ada di [`architecture.md`](./architecture.md).
+Detail arsitektur lengkap ada di [`ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
 
 ## Dokumentasi Project
 
 | File | Isi |
 |---|---|
-| [`product.md`](./product.md) | Kebutuhan produk, fitur, non-goals, roadmap |
-| [`architecture.md`](./architecture.md) | Desain teknis, struktur folder, database schema |
-| [`CLAUDE.md`](./CLAUDE.md) | Aturan kerja/coding standard |
-| [`tasks.md`](./tasks.md) | Daftar tugas per fase pengembangan |
-| [`FRONTEND_PLAN.md`](./FRONTEND_PLAN.md) | Rencana desain UI per screen |
-| [`STITCH_PROMPT.md`](./STITCH_PROMPT.md) | Prompt untuk generate UI via Google Stitch |
+| [`PRODUCT.md`](./docs/PRODUCT.md) | Kebutuhan produk, fitur, non-goals, roadmap |
+| [`ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Desain teknis, struktur folder, database schema |
+| [`CLAUDE.md`](./docs/CLAUDE.md) | Aturan kerja/coding standard |
+| [`TASKS.md`](./docs/TASKS.md) | Daftar tugas per fase pengembangan |
 
 ## Setup Lokal
 
@@ -77,4 +75,4 @@ php artisan test
 
 ## Catatan
 
-Project ini dibuat untuk penggunaan pribadi (single-user), bukan produk SaaS atau multi-tenant. Lihat bagian "Non-Goals" di [`product.md`](./product.md) untuk batasan scope yang disengaja.
+Project ini dibuat untuk penggunaan pribadi (single-user), bukan produk SaaS atau multi-tenant. Lihat bagian "Non-Goals" di [`PRODUCT.md`](./docs/PRODUCT.md) untuk batasan scope yang disengaja.
