@@ -1,4 +1,4 @@
-# JobHub
+# Job Aggregator App
 
 Personal job aggregator with AI-powered match scoring and a smart recruitment email dashboard.
 
@@ -10,7 +10,7 @@ Dibangun untuk menyelesaikan masalah pribadi saat mencari kerja:
 - Lowongan tersebar di banyak platform (Glints, LinkedIn Jobs, dll), harus dicek manual satu per satu
 - Inbox Gmail penuh notifikasi bot dari job board, sehingga email penting dari HR sering tertimpa dan terlambat dibaca
 
-Detail lengkap kebutuhan produk ada di [`product.md`](./product.md).
+Detail lengkap kebutuhan produk ada di [`product.md`](./docs/PRODUCT.md).
 
 ## Fitur Utama
 
