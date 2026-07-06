@@ -4,7 +4,5 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home', [
-        'message' => 'Setup polosan berhasil 🎉',
-    ]);
+    return Inertia::render('Login');
 });

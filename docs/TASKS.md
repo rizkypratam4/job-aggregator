@@ -11,7 +11,7 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 
 ## Fase 0 — Setup Awal Project (Manual, Tanpa Breeze/Jetstream)
 
-- [x] Install Laravel baru: `composer create-project laravel/laravel job-aggregator`
+- [x] Install Laravel baru: `composer create-project laravel/laravel jobhub`
 - [x] Konfigurasi database lokal (`.env`) — SQLite atau MySQL
 - [x] Install Inertia server-side: `composer require inertiajs/inertia-laravel`
 - [x] Jalankan `php artisan inertia:middleware`, daftarkan middleware `HandleInertiaRequests` di `bootstrap/app.php`
@@ -28,6 +28,21 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 - [x] Buat repository git lokal (kalau belum), commit awal struktur kosong
 
 **Catatan:** Karena setup manual (bukan starter kit), autentikasi/session tidak otomatis tersedia dari scaffolding — implementasi Login & Google OAuth dikerjakan sendiri di Fase 1.1.
+
+---
+
+## Fase 0.5 — Implementasi UI (Manual, Berdasarkan Referensi Desain)
+Dikerjakan setelah semua screen selesai didesain (lihat `FRONTEND_PLAN.md`), sebelum mulai sambungkan ke backend per fitur. UI dikoding manual, bukan hasil export otomatis.
+
+- [x] Buat folder `resources/js/Pages/` sesuai struktur di `architecture.md` (`Dashboard.jsx`, `JobListings/Index.jsx`, `Emails/Index.jsx`, `Profile/Edit.jsx`)
+- [ ] Koding tiap Page secara manual (React + Tailwind), mengikuti layout & komponen yang sudah didefinisikan di `FRONTEND_PLAN.md`
+- [ ] Pecah komponen reusable ke `resources/js/Components/` sesuai daftar di `FRONTEND_PLAN.md` (`JobCard.jsx`, `MatchScoreBadge.jsx`, `EmailListItem.jsx`, `StatusLabel.jsx`, dll)
+- [ ] Buat komponen `Sidebar.jsx` dan `Layout.jsx` (wrapper) supaya navigasi sidebar tidak perlu diulang manual di tiap Page
+- [ ] Gunakan **props placeholder** untuk data (misal `props.jobListings`, `props.emails`) — supaya nanti tinggal disambungkan ke data asli dari Controller Laravel per fase
+- [ ] Isi tiap Page dengan data dummy/contoh dulu untuk pengecekan tampilan sebelum sambungkan logic asli
+- [ ] Test render semua Page dengan data dummy (`Inertia::render(...)` dari route sementara) — pastikan tampilan sudah sesuai rencana desain
+
+**Milestone Fase 0.5 selesai jika:** Semua 5 screen (Login, Dashboard, Job Listings, Recruitment Emails, Profile Settings) sudah jadi komponen React yang bisa di-render Inertia dengan data dummy, tampilannya sesuai `FRONTEND_PLAN.md`, dan siap menerima data asli di fase berikutnya.
 
 ---
 
@@ -57,13 +72,12 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 - [ ] **[Pest]** Unit test `EmailClassifier` dengan berbagai skenario subjek/body
 - [ ] **[Pest]** Unit test `GmailService` domain filtering
 
-### 1.4 Dashboard Frontend
+### 1.4 Sambungkan Frontend ke Data Asli
 - [ ] Buat `EmailController@index` — query email non-bot, urutkan terbaru
-- [ ] Buat halaman `Pages/Emails/Index.jsx` (Inertia + React)
-- [ ] Komponen `EmailListItem.jsx` — tampilkan sender, subjek, snippet, label status
-- [ ] Komponen `StatusLabel.jsx` — badge visual per status
+- [ ] Sambungkan `Pages/Emails/Index.jsx` (sudah ada dari Fase 0.5) ke data asli via `Inertia::render('Emails/Index', ['emails' => ...])`
+- [ ] Pastikan `EmailListItem.jsx` & `StatusLabel.jsx` menerima props data asli (bukan dummy lagi)
 - [ ] Implementasi klik email → buka deep link Gmail (`https://mail.google.com/mail/u/0/#inbox/{gmail_message_id}`)
-- [ ] Tambahkan tombol "Refresh" manual untuk trigger sync tanpa nunggu jadwal
+- [ ] Sambungkan tombol "Refresh" (sudah ada di UI) ke endpoint trigger sync manual
 
 ### 1.5 Scheduler
 - [ ] Daftarkan `SyncGmailMessagesJob` di scheduler (`routes/console.php`), jalankan berkala (misal tiap 1-2 jam)
@@ -79,7 +93,7 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 - [ ] Buat migration tabel `profiles`
 - [ ] Buat model `Profile`
 - [ ] Buat `ProfileController` (form create/edit)
-- [ ] Buat halaman `Pages/Profile/Edit.jsx` — form input skill, pengalaman, lokasi, tipe kerja, level, ekspektasi gaji
+- [ ] Sambungkan `Pages/Profile/Edit.jsx` (sudah ada dari Fase 0.5) — form submit ke `ProfileController@update`
 - [ ] Isi profil sendiri sebagai data pertama
 
 ### 2.2 Riset Platform (WAJIB sebelum coding scraper)
@@ -99,11 +113,11 @@ Checklist `[ ]` bisa dicentang manual seiring progres.
 - [ ] **[Pest]** Unit test parsing scraper menggunakan HTML fixture (simpan contoh HTML asli di `tests/Fixtures/`)
 - [ ] Implementasi `ScrapeJobListingJob` — orkestrasi panggil scraper, simpan/update ke `job_listings`, cegah duplikat (unique constraint `source_platform` + `source_url`)
 
-### 2.4 Dashboard Frontend
+### 2.4 Sambungkan Frontend ke Data Asli
 - [ ] Buat `JobListingController@index` — query job_listings dengan filter (skill, lokasi, gaji, tipe kerja, level)
-- [ ] Buat halaman `Pages/JobListings/Index.jsx`
-- [ ] Komponen `JobCard.jsx` — tampilkan info lowongan
-- [ ] Implementasi filter UI (dropdown/checkbox untuk skill, lokasi, dll)
+- [ ] Sambungkan `Pages/JobListings/Index.jsx` (sudah ada dari Fase 0.5) ke data asli via `Inertia::render('JobListings/Index', ['jobListings' => ...])`
+- [ ] Pastikan `JobCard.jsx` & `MatchScoreBadge.jsx` menerima props data asli (bukan dummy lagi)
+- [ ] Sambungkan filter UI (sudah ada di tampilan) ke query parameter/backend — dropdown skill, lokasi, gaji, tipe kerja, level benar-benar memfilter data
 - [ ] Implementasi klik card → buka `source_url` di tab baru (redirect ke platform asli)
 
 ### 2.5 Scheduler
