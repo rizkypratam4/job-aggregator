@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --color-primary: #4F46E5;
+    --color-secondary: #111827;
+    --color-tertiary: #6366F1;
+    --color-neutral: #F9FAFB;
+    --color-newhite: #f8f9fa;
+    --color-outline-variant: #c7c4d8;
+    --color-surface-container-high: #e7e8e9;
+    --color-headline: #191c1d;
+    --color-body: #464555;
+    --color-on-primary-container: #dad7ff;
+    --color-tertiary-container: #4b4dd8;
+    --color-surface-container-low: #f3f4f5;
+    --color-success: #16a34a;
+    --color-danger: #dc2626;
+
+    --spacing-base: 4px;
+    --spacing-stack-sm: 8px;
+    --spacing-stack-md: 16px;
+    --spacing-stack-lg: 24px;
+    --spacing-gutter: 24px;
+    --spacing-margin-page: 40px;
+    --spacing-sidebar-width: 240px;
+    --spacing-container-max: 1280px;
+}
+
+@layer base {
+    body {
+        font-family: 'inter', sans-serif;
+    }
+}
+
+@utility active {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary-container);
+}
+
+@utility display {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-headline);
+
+  @variant sm {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  @variant md {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  @variant lg {
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  @variant 2xl {
+    font-size: 46px;
+    line-height: 72px;
+  }
+}
+
+@utility headline-element {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-headline);
+
+  @variant sm {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @variant md {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  @variant lg {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @variant xl {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  @variant 2xl {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+@utility title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--color-headline);
+
+  @variant sm {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  @variant md {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  @variant lg {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @variant xl {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  @variant 2xl {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@utility body-element {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-body);
+
+  @variant sm {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  @variant md {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @variant lg {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  @variant xl {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  @variant 2xl {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@utility label {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--color-label);
+
+  @variant sm {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  @variant md {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @variant lg {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  @variant xl {
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  @variant 2xl {
+    font-size: 12px;
+    line-height: 21px;
+  }
+}
+
+@utility caption {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  color: var(--color-body);
+
+  @variant sm {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  @variant md {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  @variant lg {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  @variant xl {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  @variant 2xl {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
